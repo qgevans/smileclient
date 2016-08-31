@@ -1,6 +1,6 @@
 __module_name__ = "smileclient"
 __module_version__ = "0.1"
-__module_description__ = "Loader for smileclient"
+__module_description__ = "A corrollary client to smilebot"
 
 import hexchat
 smileclient_path = hexchat.get_info("configdir") + "/addons/smileclient/"
