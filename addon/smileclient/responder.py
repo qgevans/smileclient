@@ -20,7 +20,6 @@ def responder_hook(word, word_eol, userdata):
             responding_channel = True
     if responding_channel:
         triggering_user = word[0][1:].split('!', 1)[0]
-        print(triggering_command)
         if(hexchat.nickcmp(triggering_command, "PRIVMSG") == 0 or hexchat.nickcmp(triggering_command, "NOTICE") == 0):
             overly_happy = False
             if(word[3] == ":D" or word[3] == "::D" or word[3] == ":+:D"):
@@ -41,16 +40,15 @@ def rejoin(userdata):
     hook = rejoin_hooks[userdata]
     del rejoin_hooks[userdata]
     hexchat.unhook(hook)
-    print("Rejoining {}…".format(userdata))
+    print("Rejoining {} now…".format(userdata))
     hexchat.command("join " + userdata)
     return hexchat.EAT_NONE
 
 def handle_kick(word, word_eol, userdata):
     channel = hexchat.get_info("channel")
     if(hexchat.nickcmp(channel, userdata) == 0):
-        print("There was a kick")
         if(hexchat.nickcmp(word[3], hexchat.get_info("nick")) == 0):
-            print("Rejoining {} in {}ms…".format(channel, rejoin_delay))
+            print("Kicked from {}. Rejoining in {}ms…".format(channel, rejoin_delay))
             rejoin_hooks[channel] = hexchat.hook_timer(rejoin_delay, rejoin, channel)
     return hexchat.EAT_NONE
 
