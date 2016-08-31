@@ -10,3 +10,4 @@ def load_module(module):
     hexchat.hook_unload(lambda current_module: hexchat.command("py unload smileclient-" + module))
 
 load_module("hello")
+load_module("responder")
