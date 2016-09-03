@@ -33,7 +33,7 @@ def responder_hook(word, word_eol, userdata):
         command = "MSG"
         if(hexchat.nickcmp(triggering_command, "NOTICE") == 0):
             command = "NOTICE"
-        hexchat.command(command + " " + channel + " :D")
+        hexchat.command(command + " " + triggering_channel + " :D")
     return hexchat.EAT_NONE
 
 def rejoin(userdata):
