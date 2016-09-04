@@ -34,6 +34,8 @@ def responder_hook(word, word_eol, userdata):
         if(hexchat.nickcmp(triggering_command, "NOTICE") == 0):
             command = "NOTICE"
         hexchat.command(command + " " + triggering_channel + " :D")
+        if super.check_debug():
+            print("This :D brought to you by: " + word_eol[0])
     return hexchat.EAT_NONE
 
 def rejoin(userdata):

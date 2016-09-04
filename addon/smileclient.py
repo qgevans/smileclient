@@ -11,3 +11,9 @@ def load_module(module):
 
 load_module("hello")
 load_module("responder")
+
+def check_debug():
+    debug = hexchat.get_pluginpref("smileclient_debug")
+    if debug and debug > 0:
+        return True
+    return False

@@ -3,3 +3,5 @@ __module_version__ = "0.1"
 __module_description__ = "Informs the user smileclient has loaded."
 
 print("Smileclient initialized.")
+if super.check_debug():
+    print("Smileclient debugging enabled.")
